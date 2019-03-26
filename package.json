@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node ./models/initialise.js",
     "test": "mocha --recursive --exit",
+    "test-jenkins": "JUNIT_REPORT_PATH=/report.xml mocha --colors --reporter mocha-jenkins-reporter",
     "dev-server": "./node_modules/.bin/node-dev ./server.js"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
     "errorhandler": "1.5.0",
     "express": "4.16.3",
     "knex": "^0.15.2",
+    "mocha-jenkins-reporter": "^0.4.1",
     "morgan": "^1.9.1",
     "mysql": "^2.16.0"
   },
