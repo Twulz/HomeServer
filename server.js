@@ -3,6 +3,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+var exports = module.exports = {};
 var db = require('./models/dbconnection');
 //const routes = require('./routes');
 
@@ -35,5 +36,10 @@ app.use(function (err, req, res, next) {
 });
 
 // Start the server
-app.listen(3000);
-console.log("Server Running...");
+var server = app.listen(3000, function() {
+    console.log('Server started on port 3000...');
+});
+
+exports.closeServer = function() {
+    server.close();
+};

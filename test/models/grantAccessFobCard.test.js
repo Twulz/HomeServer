@@ -1,6 +1,7 @@
 const Database = require('../../models/database');
 const config = require('../../models/dbconnection');
 const data = require('../../models/dummyData');
+var server = require('../../server.js');
 
 const { expect } = require('chai');
 const db = new Database(config);
@@ -74,6 +75,7 @@ describe('grantAccessFobCard', function(){
                 expect(res).to.exist;
                 expect(res.statusCode).to.equal(400);
                 expect(res.body.error).to.include('Code not sent');
+                //server.closeServer();
                 done();
             })
         });

@@ -18,7 +18,7 @@ beforeEach(function (done) {
 describe('Lights', function(){
 
     // Reinitialise test bench, timeout must be increased for db table creation
-    this.timeout(15000);
+    /* this.timeout(15000);
     before(async () => await db.initDatabase(data))
 
     describe('getRoomLights', function() {
@@ -97,5 +97,5 @@ describe('Lights', function(){
     });
 
     // Destroy
-    //after(async () => await db.destroySchema())
+    //after(async () => await db.destroySchema()) */
 });
