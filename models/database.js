@@ -56,13 +56,19 @@ class Database {
                 table.integer('blind_state').notNullable().defaultTo(0)
             })
 
-            .createTable('garden_sections', table => {
+            /* .createTable('garden_sections', table => {
                 table.increments('section_id').unsigned().notNullable().primary()
                 table.string('description').notNullable()
                 table.integer('minMoisture').unsigned().defaultTo(null)
                 table.integer('criticalMoisture').unsigned().defaultTo(null)
                 table.integer('lightSensitivity').unsigned().defaultTo(null)
                 table.float('current_sun').notNullable().defaultTo(50.0)
+                table.integer('valve_state').notNullable().defaultTo(0)
+            }) */
+
+            .createTable('garden_sections', table => {
+                table.increments('section_id').unsigned().notNullable().primary()
+                table.string('description').notNullable()
                 table.integer('valve_state').notNullable().defaultTo(0)
             })
 
@@ -289,6 +295,13 @@ class Database {
     updateGardenSunState(sun_percent, section_id) {
         return this.knex('garden_sections')
             .update({'current_sun': sun_percent})
+            .where('section_id', section_id)
+            .then(() => 'Success')
+    }
+
+    updateValveState(valve_state, section_id) {
+        return this.knex('garden_sections')
+            .update({'valve_state': valve_state})
             .where('section_id', section_id)
             .then(() => 'Success')
     }

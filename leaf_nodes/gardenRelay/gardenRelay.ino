@@ -28,7 +28,7 @@
 //#define UNLOCK          LOW
 
 // Define which source path to GET:
-String resourceGet = "/room/1/heatingcooling/";
+String resourceGet = "/garden_section/1";
 
 // WiFi Setup
 //String ipAddress = "192.168.1.14";
@@ -353,13 +353,9 @@ bool readResponseContent(String payload) {
     Serial.println("JSON parsing failed!");
     return false;
   }
-  //root.printTo(Serial);
   
-  //Store heater and cooler states locally
-  int relay = root["response"][0]["cooling_state"]; // using the "cooling_state" parameter
-  //int heater = root["response"][0]["heater_state"];
-  //Serial.println(cooler);
-  //Serial.println(heater);
+  //Store valve state locally
+  int relay = root["response"][0]["valve_state"];
   
   //Turn heater and cooler on or off
   if (relay == 1)

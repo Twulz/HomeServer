@@ -35,8 +35,8 @@ module.exports = {
     ],
 
     garden_sections: [
-        {description: "Herb Garden", minMoisture: 500, criticalMoisture: 300, lightSensitivity: 50.0},
-        {description: "Flower Garden", minMoisture: 500, criticalMoisture: 300, lightSensitivity: 50.0}
+        {description: "Herb Garden", valve_state: 0},
+        {description: "Flower Garden", valve_state: 0}
     ],
 
     sensor_types: [
